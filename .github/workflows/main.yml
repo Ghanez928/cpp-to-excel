@@ -37,4 +37,3 @@ jobs:
           name: hasil-excel
           path: hasil.xlsx
           if-no-files-found: error
-```
