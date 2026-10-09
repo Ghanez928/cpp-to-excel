@@ -1,20 +1,11 @@
-import subprocess
-import pandas as pd
-from io import StringIO
+#include <iostream>
+using namespace std;
 
-# Menjalankan program C++
-result = subprocess.run(
-    ["./main"],
-    capture_output=True,
-    text=True,
-    check=True
-)
+int main() {
+    cout << "Nama,Nilai" << endl;
+    cout << "Andi,85" << endl;
+    cout << "Budi,90" << endl;
+    cout << "Citra,95" << endl;
 
-# Membaca output program C++
-data = pd.read_csv(StringIO(result.stdout))
-
-# Membuat file Excel
-data.to_excel("hasil.xlsx", index=False)
-
-print("Berhasil membuat file hasil.xlsx")
-```
+    return 0;
+}
