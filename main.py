@@ -1,4 +1,3 @@
-```python
 import subprocess
 import pandas as pd
 from io import StringIO
@@ -18,4 +17,3 @@ data = pd.read_csv(StringIO(result.stdout))
 data.to_excel("hasil.xlsx", index=False)
 
 print("Berhasil membuat file hasil.xlsx")
-```
