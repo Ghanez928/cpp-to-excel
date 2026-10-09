@@ -1,0 +1,41 @@
+```yaml
+name: C++ to Excel
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile C++
+        run: g++ main.cpp -o main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install libraries
+        run: pip install -r requirements.txt
+
+      - name: Run C++ and create Excel
+        run: python main.py
+
+      - name: Upload Excel file
+        uses: actions/upload-artifact@v4
+        with:
+          name: hasil-excel
+          path: hasil.xlsx
+          if-no-files-found: error
+```
